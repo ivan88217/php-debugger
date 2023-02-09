@@ -6,11 +6,11 @@ class Debugger {
 	public static $theme_printed = false;
 
 	public static function theme() {
-		if (Debugging::$theme_printed) {
+		if (Debugger::$theme_printed) {
 			return;
 		}
 
-		Debugging::$theme_printed = true;
+		Debugger::$theme_printed = true;
 
 		$base_url = base_url();
 
@@ -22,14 +22,14 @@ class Debugger {
 	}
 
 	public static function log($value, $typed = true) {
-		Debugging::theme();
-		$html = Debugging::to_html($value, $typed);
+		Debugger::theme();
+		$html = Debugger::to_html($value, $typed);
 		echo "<div class=\"debug-container\">$html</div>";
 	}
 
 	public static function to_html($value, $typed = true, $nesting_level = 0) {
 		$type = gettype($value);
-		$type_span_html = $typed ? Debugging::to_type_span_html($value) : "";
+		$type_span_html = $typed ? Debugger::to_type_span_html($value) : "";
 		$indent = str_repeat("&nbsp;", $nesting_level * 4);
 
 		switch ($type) {
@@ -55,7 +55,7 @@ class Debugger {
 				$item_indent = str_repeat("&nbsp;", ($nesting_level + 1) * 4);
 
 				$items_html = implode(",\n", array_map(function ($key, $value) use ($typed, $nesting_level, $item_indent) {
-					$html = Debugging::to_html($value, $typed, $nesting_level + 1);
+					$html = Debugger::to_html($value, $typed, $nesting_level + 1);
 					return "$item_indent<span class=\"string\">\"$key\"</span> => $html";
 				}, array_keys($value), $value));
 
@@ -98,8 +98,8 @@ class Debugger {
 	}
 
 	public static function form($url, $data = [], $method = "") {
-		Debugging::theme();
-		$form_items_html = Debugging::to_form_items_html($data);
+		Debugger::theme();
+		$form_items_html = Debugger::to_form_items_html($data);
 	
 		$auto_request_script_html = $method ? (
 			"<script>document.body.onload = function () { document.querySelector('.debug-form-submit .$method').click(); }</script>"
@@ -121,7 +121,7 @@ class Debugger {
 			$name = $prefix ? "{$prefix}[$name]" : $name;
 	
 			if (gettype($value) == "array") {
-				return Debugging::to_form_items_html($data, $name);
+				return Debugger::to_form_items_html($data, $name);
 			}
 
 			return "<span class=\"string\">$name</span>&#61;<span class=\"string\" contenteditable>$value</span>";
@@ -129,8 +129,8 @@ class Debugger {
 	}
 
 	public static function table($value, $typed = false) {
-		Debugging::theme();
-		$html = Debugging::to_table_html($value, $typed);
+		Debugger::theme();
+		$html = Debugger::to_table_html($value, $typed);
 		echo "<div class=\"debug-container\">$html</div>";
 	}
 
@@ -148,7 +148,7 @@ class Debugger {
 				return (
 					"<tr><td><span class=\"hide-text\">[</span>" .
 					implode("<span class=\"hide-text\">,</span></td><td>", array_map(function ($key, $value) use ($typed) {
-						$html = Debugging::to_html($value, $typed);
+						$html = Debugger::to_html($value, $typed);
 						return "<span class=\"hide-text\">\"$key\" => </span>$html";
 					}, array_keys($value), $value)) .
 					"<span class=\"hide-text\">],</span></td></tr>"
