@@ -1,0 +1,17 @@
+{
+    "name": "ivan/php-debugger",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Ivan\\PhpDebugger\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ivan",
+            "email": "ivan88217@gmail.com"
+        }
+    ],
+    "require": {}
+}
