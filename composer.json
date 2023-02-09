@@ -5,7 +5,10 @@
     "autoload": {
         "psr-4": {
             "Ivan\\PhpDebugger\\": "src/"
-        }
+        },
+        "files": [
+            "src/debugger.php"
+        ]
     },
     "authors": [
         {
