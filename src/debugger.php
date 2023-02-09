@@ -1,5 +1,7 @@
 <?php
 
+namespace Ivan88217;
+
 class Debugger {
 	public static $theme_printed = false;
 
