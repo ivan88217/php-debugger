@@ -4,7 +4,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Ivan\\PhpDebugger\\": "src/"
+            "Ivan88217\\PhpDebugger\\": "src/"
         },
         "files": [
             "src/debugger.php"
