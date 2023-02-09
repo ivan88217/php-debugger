@@ -1,5 +1,5 @@
 {
-    "name": "ivan/php-debugger",
+    "name": "ivan88217/php-debugger",
     "type": "library",
     "license": "MIT",
     "autoload": {
@@ -9,7 +9,7 @@
     },
     "authors": [
         {
-            "name": "ivan",
+            "name": "ivan88217",
             "email": "ivan88217@gmail.com"
         }
     ],
