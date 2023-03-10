@@ -1,0 +1,143 @@
+body {
+    margin: 0px;
+}
+
+.debug-container * {
+    font-size: 16px;
+    font-family: monospace;
+	-webkit-overflow-scrolling: touch;
+}
+
+.debug-container {
+    display: none;
+    user-select: none;
+    padding: 10px;
+    color: #d4d4d4;
+    background-color: #1e1e1e;
+	-webkit-overflow-scrolling: touch;
+}
+
+.debug-container.show {
+    display: block;
+}
+
+.reserved {
+    color: #569cd6;
+}
+
+.class-name {
+    color: #4ec9b0;
+}
+
+.string {
+    color: #ce9178;
+}
+
+.number {
+    color: #b5cea8;
+}
+
+.debug-container input[type=checkbox],
+.debug-container input[type=radio] {
+    display: none;
+}
+
+.debug-container input[type=text] {
+    border: none;
+    height: 19px;
+    background: #2e2e2e;
+    color: #ce9178;
+}
+
+.debug-container label,
+.debug-container span {
+    user-select: text;
+    white-space: pre-wrap;
+    line-height: 20px;
+    display: unset; 
+    max-width: unset;
+    margin-bottom: unset;
+    font-weight: unset;
+}
+
+.debug-container .arrow {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    float: none;
+}
+
+.debug-container input[type=checkbox]:checked+.arrow {
+    /* code-show */
+    transform: rotate(90deg);
+}
+
+.debug-container .arrow {
+    /* code-hide */
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20fill%3D%27%23d4d4d4%27%20width%3D%2710%27%20height%3D%2710%27%3E%3Cpath%20d%3D%27M2%200%20L2%2010%20L9%205%20Z%27/%3E%3C/svg%3E");
+    background-position: center;
+    opacity: 0.6;
+    transition: all 0.2s;
+}
+
+.debug-container .arrow:hover,
+.debug-container .hide:hover::before {
+    opacity: 1;
+}
+
+.debug-container input[type=checkbox]:checked~label>.hide,
+input[type=checkbox]:not(:checked)~label .show {
+    display: none !important;
+}
+
+.debug-container .hide {
+    display: unset !important;
+}
+
+.debug-container .hide::before {
+    content: "...";
+    opacity: 0.6;
+    transition: all 0.2s;
+}
+
+.debug-container .show {
+    animation: show 0.5s;
+    display: unset !important;
+    /* display: table !important;
+    padding-left: 20px; */
+}
+
+.debug-container .no-select,
+.debug-container .no-select * {
+    user-select: none;
+}
+
+.debug-container.debug-full-screen {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2147483647;
+    overflow: auto;
+}
+
+.debug-form-submit {
+    cursor: pointer;
+    text-align: right;
+}
+
+.debug-form-submit span {
+    user-select: none;
+}
+
+.debug-form-submit form {
+    display: none;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+}
