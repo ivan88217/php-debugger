@@ -50,8 +50,12 @@ class Debugger
                 $value_html = str_replace("&", "&amp;", $value);
                 return "$type_span_html<span class=\"string\">\"$value_html\"</span>";
 
-            case "array":
-                $item_indent = str_repeat("&nbsp;", ($nesting_level + 1) * 4);
+            default:
+                if ($value instanceof \IteratorAggregate) {
+                    $value = $value->toArray();
+                } elseif (is_object($value)) {
+                    $value = get_object_vars($value);
+                }
 
                 $items_html = implode(",\n", array_map(function ($key, $value) use ($typed, $nesting_level, $item_indent) {
                     $html = Debugger::toHtml($value, $typed, $nesting_level + 1);
@@ -72,9 +76,6 @@ class Debugger
                     "</label>" .
                     "</label>"
                 );
-
-            default:
-                $value = get_object_vars($value);
         }
     }
 
