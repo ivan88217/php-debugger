@@ -15,8 +15,8 @@ class Debugger
         Debugger::$theme_printed = true;
 
         echo (
-            '<script src="https://raw.githubusercontent.com/ivan88217/php-debugger/master/public/js/debug.js" crossorigin="anonymous"></script>'.
-            '<link href="https://raw.githubusercontent.com/ivan88217/php-debugger/master/public/css/debug.css" rel="stylesheet" crossorigin="anonymous">'.
+            '<script src="https://raw.githack.com/ivan88217/php-debugger/master/public/js/debug.js" crossorigin="anonymous"></script>'.
+            '<link href="https://raw.githack.com/ivan88217/php-debugger/master/public/css/debug.css" rel="stylesheet" crossorigin="anonymous">'.
             '<style>.debug-container{display:block}</style>'
         );
     }
