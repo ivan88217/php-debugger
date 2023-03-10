@@ -50,9 +50,6 @@ class Debugger
                 $value_html = str_replace("&", "&amp;", $value);
                 return "$type_span_html<span class=\"string\">\"$value_html\"</span>";
 
-            case "object":
-                $value = get_object_vars($value);
-
             case "array":
                 $item_indent = str_repeat("&nbsp;", ($nesting_level + 1) * 4);
 
@@ -75,6 +72,9 @@ class Debugger
                     "</label>" .
                     "</label>"
                 );
+
+            default:
+                $value = get_object_vars($value);
         }
     }
 
