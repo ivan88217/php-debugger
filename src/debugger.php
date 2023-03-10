@@ -14,12 +14,10 @@ class Debugger
 
         Debugger::$theme_printed = true;
 
-        $base_url = $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["HTTP_HOST"];
-
         echo (
-            "<script src=\"{$base_url}assets/js/main/shared/debug.js\"></script>".
-            "<link href=\"{$base_url}assets/css/main/shared/debug.css\" rel=\"stylesheet\">".
-            "<style>.debug-container{display:block}</style>"
+            '<script src="https://raw.githubusercontent.com/ivan88217/php-debugger/master/public/js/debug.js"></script>'.
+            '<link href="https://raw.githubusercontent.com/ivan88217/php-debugger/master/public/css/debug.css" rel="stylesheet">'.
+            '<style>.debug-container{display:block}</style>'
         );
     }
 
