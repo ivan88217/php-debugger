@@ -56,6 +56,7 @@ class Debugger
                 } elseif (is_object($value)) {
                     $value = get_object_vars($value);
                 }
+                $item_indent = str_repeat("&nbsp;", ($nesting_level + 1) * 4);
 
                 $items_html = implode(",\n", array_map(function ($key, $value) use ($typed, $nesting_level, $item_indent) {
                     $html = Debugger::toHtml($value, $typed, $nesting_level + 1);
